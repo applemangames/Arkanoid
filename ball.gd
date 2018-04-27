@@ -10,17 +10,25 @@ func _ready():
 	
 
 func _physics_process(delta):
-	motion.x = direction.x * speed * delta
-	motion.y = direction.y * speed * delta
-	print(direction)
+	direction = 90
+	speed = 100.0
+	
+	
+	motion.x = cos(direction * (PI/180))  * speed * delta
+	motion.y = -sin(direction * (PI/180)) * speed * delta
+	print(motion)
+	
+	
+	
 	var collide = move_and_collide(motion)
+	
 	enemies = get_tree().get_nodes_in_group("enemies")
 	
 	if collide:
-		var norm = collide.normal
+		#var norm = collide.normal
 		#norm.x = round(collide.normal.x)
 		#norm.y = round(collide.normal.y)
-		direction = direction.bounce(norm)
+		#direction = direction.bounce(collide.normal)
 		
 		for enemy in enemies:
 			if(collide.collider_id == enemy.get_instance_id()):

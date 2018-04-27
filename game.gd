@@ -18,5 +18,5 @@ func _on_StartButton_pressed():
 	#emit_signal("start_game")
 	$StartButton.hide()
 	print("start Game")
-	$ball.direction.x = rand_range(-0.25, 0.25)  
-	$ball.direction.y = rand_range(-0.30, -0.20)
+	#$ball.direction.x = rand_range(-0.25, 0.25)  
+	#$ball.direction.y = rand_range(-0.30, -0.20)
