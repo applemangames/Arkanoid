@@ -3,6 +3,10 @@ extends KinematicBody2D
 var pad_motion = Vector2()
 var mouse_position = Vector2()
 var mouse_is_down = false
+var start_position = Vector2()
+
+func _ready():
+	start_position = self.position
 
 func _physics_process(delta):
 	
@@ -26,3 +30,6 @@ func _input(event):
 			mouse_is_down = true
 		else:
 			mouse_is_down = false
+
+func set_start_position():
+	self.position = start_position

@@ -5,10 +5,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 50, 17.6216 )
+extents = Vector2( 58.2801, 19.6336 )
 
 [node name="brick" type="StaticBody2D" groups=[
-"enemies",
+"bricks",
 ]]
 
 input_pickable = false
@@ -26,8 +26,8 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 visible = false
-position = Vector2( -3.57628e-07, 5.96046e-07 )
-scale = Vector2( 0.943396, 0.869565 )
+position = Vector2( -0.727404, 0.467707 )
+scale = Vector2( 0.405374, 1.17521 )
 shape = SubResource( 1 )
 
 

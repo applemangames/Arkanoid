@@ -1,13 +1,5 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
 
 func _process(delta):
 	if Input.is_action_just_released("enter"):
@@ -18,5 +10,18 @@ func _on_StartButton_pressed():
 	#emit_signal("start_game")
 	$StartButton.hide()
 	print("start Game")
-	#$ball.direction.x = rand_range(-0.25, 0.25)  
-	#$ball.direction.y = rand_range(-0.30, -0.20)
+	$ball.direction = 45
+	$ball.speed = 250
+	$ball.start = true
+	
+func restart():	
+	var bricks = get_tree().get_nodes_in_group("bricks")
+	for brick in bricks:
+		brick.free()
+	
+	var scene = load("res://level1.tscn")
+	var node = scene.instance()
+	node.position = $bricks.position
+	node.z_index = -1
+	add_child(node)
+
