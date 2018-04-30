@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://game.gd" type="Script" id=1]
-[ext_resource path="res://pad.gd" type="Script" id=2]
+[ext_resource path="res://scripts/game.gd" type="Script" id=1]
+[ext_resource path="res://scripts/pad.gd" type="Script" id=2]
 [ext_resource path="res://images/pad1.png" type="Texture" id=3]
-[ext_resource path="res://ball.gd" type="Script" id=4]
+[ext_resource path="res://scripts/ball.gd" type="Script" id=4]
 [ext_resource path="res://images/ball1.png" type="Texture" id=5]
-[ext_resource path="res://level1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://walls.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/walls.tscn" type="PackedScene" id=7]
 [ext_resource path="res://images/start_button.png" type="Texture" id=8]
+[ext_resource path="res://scenes/lives.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -112,8 +113,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 417.0
 margin_top = 244.0
-margin_right = 573.0
-margin_bottom = 306.0
+margin_right = 628.0
+margin_bottom = 333.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -128,6 +129,10 @@ group = null
 texture_normal = ExtResource( 8 )
 script = SubResource( 5 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Textures", "Visibility", "custom_fonts" ]
+
+[node name="lives" parent="." index="6" instance=ExtResource( 9 )]
+
+position = Vector2( 127.424, 541.828 )
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 

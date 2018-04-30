@@ -38,19 +38,15 @@ func _physics_process(delta):
 		
 func _process(delta):
 	if self.position.y > 600:
-		position = get_node('../start_position').position
-		get_node('../StartButton').show()
-		motion = Vector2(0,0)
-		randomize()
-		dir = dir_chooses[randi() % 4]
-		speed = 0
-		start = false
-		
-		get_parent().find_node("pad").set_start_position()
-		
-		get_parent().restart()
-		
+		get_parent().emit_signal("ball_out_of_room")
 		
 
-
+func reset_ball():
+	position = get_node('../start_position').position
+	get_node('../StartButton').show()
+	motion = Vector2(0,0)
+	randomize()
+	dir = dir_chooses[randi() % 4]
+	speed = 0
+	start = false
 	
