@@ -6,6 +6,7 @@ var speed = 0
 var bricks = []
 var dir = Vector2(1,-1)
 var start = false
+const dir_chooses = [Vector2(1,1), Vector2(1,-1), Vector2(-1,1), Vector2(-1,-1)]
 
 
 func _physics_process(delta):
@@ -40,10 +41,11 @@ func _process(delta):
 		position = get_node('../start_position').position
 		get_node('../StartButton').show()
 		motion = Vector2(0,0)
+		randomize()
+		dir = dir_chooses[randi() % 4]
 		speed = 0
 		start = false
 		
-		#get_parent().restart()
 		get_parent().find_node("pad").set_start_position()
 		
 		get_parent().restart()
