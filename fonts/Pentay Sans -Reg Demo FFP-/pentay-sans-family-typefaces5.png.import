@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/start_button.png-c2883707796f780f09ab9fc6a5c06298.stex"
+path="res://.import/pentay-sans-family-typefaces5.png-9da34c475d9bf2d240c8695e549afe0c.stex"
 
 [deps]
 
-source_file="res://images/start_button.png"
-source_md5="b0287d260775140136ad456673997d69"
+source_file="res://fonts/Pentay Sans -Reg Demo FFP-/pentay-sans-family-typefaces5.png"
+source_md5="3920022befcb3ebdc652ed09b8b152fe"
 
-dest_files=[ "res://.import/start_button.png-c2883707796f780f09ab9fc6a5c06298.stex" ]
-dest_md5="f552f5f61dd805910e193c264393d82a"
+dest_files=[ "res://.import/pentay-sans-family-typefaces5.png-9da34c475d9bf2d240c8695e549afe0c.stex" ]
+dest_md5="06ff66cc9bff4c7ac02db18663ecb039"
 
 [params]
 

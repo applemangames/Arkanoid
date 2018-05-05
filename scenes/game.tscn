@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scripts/pad.gd" type="Script" id=2]
 [ext_resource path="res://images/pad1.png" type="Texture" id=3]
 [ext_resource path="res://scripts/ball.gd" type="Script" id=4]
 [ext_resource path="res://images/ball1.png" type="Texture" id=5]
-[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/walls.tscn" type="PackedScene" id=7]
-[ext_resource path="res://images/start_button.png" type="Texture" id=8]
-[ext_resource path="res://scenes/lives.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/walls.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ControlPanel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://images/start_button.png" type="Texture" id=9]
+[ext_resource path="res://fonts/Pentay Sans -Reg Demo FFP-/Pentay-Sans-Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -30,26 +31,13 @@ pressed = true
 
 shortcut = SubResource( 3 )
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="DynamicFont" id=5]
 
-script/source = "extends TextureButton
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-	
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
-"
+size = 40
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 10 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="game" type="Node2D" index="0"]
 
@@ -93,27 +81,29 @@ texture = ExtResource( 5 )
 
 shape = SubResource( 2 )
 
-[node name="bricks" parent="." index="2" instance=ExtResource( 6 )]
-
-position = Vector2( 31, -10 )
-
-[node name="walls" parent="." index="3" instance=ExtResource( 7 )]
+[node name="walls" parent="." index="2" instance=ExtResource( 6 )]
 
 _sections_unfolded = [ "Visibility" ]
 
-[node name="start_position" type="Position2D" parent="." index="4"]
+[node name="ControlPanel" parent="." index="3" instance=ExtResource( 7 )]
+
+[node name="bricks" parent="." index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 31, -10 )
+
+[node name="start_position" type="Position2D" parent="." index="5"]
 
 position = Vector2( 512, 384 )
 
-[node name="StartButton" type="TextureButton" parent="." index="5"]
+[node name="StartButton" type="TextureButton" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 417.0
+margin_left = 413.0
 margin_top = 244.0
-margin_right = 628.0
+margin_right = 624.0
 margin_bottom = 333.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -126,13 +116,32 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = SubResource( 4 )
 group = null
-texture_normal = ExtResource( 8 )
-script = SubResource( 5 )
+texture_normal = ExtResource( 9 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Textures", "Visibility", "custom_fonts" ]
 
-[node name="lives" parent="." index="6" instance=ExtResource( 9 )]
+[node name="Label" type="Label" parent="StartButton" index="0"]
 
-position = Vector2( 127.424, 541.828 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_top = 23.0
+margin_right = 178.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "START"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 

@@ -39,8 +39,8 @@ func show_game_over():
 	add_child(sprite) 
 
 func ball_out_of_room():
-	$lives.remove_live()
-	if $lives.get_lives_num() <= 0:
+	$ControlPanel/lives.remove_live()
+	if $ControlPanel/lives.get_lives_num() <= 0:
 		show_game_over()
 		$ball.free()
 	else:
