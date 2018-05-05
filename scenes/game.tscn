@@ -7,7 +7,7 @@
 [ext_resource path="res://images/ball1.png" type="Texture" id=5]
 [ext_resource path="res://scenes/walls.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/ControlPanel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/level3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://images/start_button.png" type="Texture" id=9]
 [ext_resource path="res://fonts/Averia-Gruesa.ttf" type="DynamicFontData" id=10]
 
@@ -95,7 +95,7 @@ position = Vector2( 510.892, 418.349 )
 
 [node name="bricks" type="Node2D" parent="." index="5"]
 
-[node name="level1" parent="bricks" index="0" instance=ExtResource( 8 )]
+[node name="level" parent="bricks" index="0" instance=ExtResource( 8 )]
 
 [node name="StartButton" type="TextureButton" parent="." index="6"]
 
