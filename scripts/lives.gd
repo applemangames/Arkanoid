@@ -9,10 +9,9 @@ var image = Image.new()
 
 func add_live():
 	var live = Sprite.new() 
-	live.position.x = previous_position + space + image.get_width()
+	live.texture = load("res://images/live.png")
+	live.position.x = previous_position + space + live.texture.get_width()
 	previous_position = live.position.x
-	live.texture = ImageTexture.new()
-	live.texture.create_from_image(image)
 	add_child(live) 
 	
 
@@ -34,7 +33,6 @@ func clear_lives():
 	
 
 func _ready():
-	image.load("res://images/live.png")
 	set_lives(lives_count)
 
 

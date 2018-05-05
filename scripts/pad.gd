@@ -4,6 +4,7 @@ var pad_motion = Vector2()
 var mouse_position = Vector2()
 var mouse_is_down = false
 var start_position = Vector2()
+var start = false
 
 func _ready():
 	start_position = self.position
@@ -19,8 +20,8 @@ func _physics_process(delta):
 	else:
 		pad_motion.x = 0
 	
-	
-	move_and_collide(pad_motion)
+	if start:
+		move_and_collide(pad_motion)
 	
 	
 func _input(event):
@@ -33,3 +34,4 @@ func _input(event):
 
 func set_start_position():
 	self.position = start_position
+	self.start = false

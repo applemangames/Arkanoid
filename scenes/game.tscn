@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scripts/pad.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://images/start_button.png" type="Texture" id=9]
 [ext_resource path="res://fonts/Averia-Gruesa.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -146,6 +147,10 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="GameOver" parent="." index="7" instance=ExtResource( 11 )]
+
+visible = false
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 

@@ -3,6 +3,7 @@ extends Node2D
 signal ball_out_of_room
 
 var level = 1
+const MAX_LEVELS = 3
 
 func _ready():
 	connect("ball_out_of_room", self, "ball_out_of_room")
@@ -13,12 +14,12 @@ func _process(delta):
 
 
 func _on_StartButton_pressed():
-	#emit_signal("start_game")
 	$StartButton.hide()
 	print("start Game")
 	$ball.direction = 45
 	$ball.speed = 250
 	$ball.start = true
+	$pad.start = true
 	
 func load_new_bricks():
 	var bricks = get_tree().get_nodes_in_group("bricks")
@@ -35,6 +36,8 @@ func load_new_bricks():
 	
 func next_level():
 	level += 1
+	if level > MAX_LEVELS:
+		level = 1
 	$ball.reset_ball()
 	$pad.set_start_position()
 	$ControlPanel/lives.add_live()
@@ -42,13 +45,11 @@ func next_level():
 	
 	
 func show_game_over():
-	var image = Image.new()
-	image.load("res://images/game_over.png")
-	var sprite = Sprite.new() 
-	sprite.position = get_viewport().get_texture().get_size()/2
-	sprite.texture = ImageTexture.new()
-	sprite.texture.create_from_image(image)
-	add_child(sprite) 
+	$pad.start = false
+	$GameOver.visible = true
+	
+func restart():
+	get_tree().change_scene("res://scenes/game.tscn")
 
 func ball_out_of_room():
 	$ControlPanel/lives.remove_live()
