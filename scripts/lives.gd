@@ -2,14 +2,14 @@ extends Node2D
 
 
 const lives_count = 3
-const offset = 5
+const space = 5
 
-var previous_position = -offset
+var previous_position = -space
 var image = Image.new()
 
 func add_live():
 	var live = Sprite.new() 
-	live.position.x = previous_position + offset + image.get_width()
+	live.position.x = previous_position + space + image.get_width()
 	previous_position = live.position.x
 	live.texture = ImageTexture.new()
 	live.texture.create_from_image(image)
@@ -18,7 +18,7 @@ func add_live():
 
 func remove_live():
 	get_children()[-1].free()
-	previous_position -= offset + image.get_width()
+	previous_position -= space + image.get_width()
 	
 func get_lives_num():
 	return len(get_children())
