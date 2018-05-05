@@ -7,7 +7,7 @@
 [ext_resource path="res://images/ball1.png" type="Texture" id=5]
 [ext_resource path="res://scenes/walls.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/ControlPanel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/level3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://images/start_button.png" type="Texture" id=9]
 [ext_resource path="res://fonts/Averia-Gruesa.ttf" type="DynamicFontData" id=10]
 
@@ -66,7 +66,7 @@ shape = SubResource( 1 )
 
 [node name="ball" type="KinematicBody2D" parent="." index="1"]
 
-position = Vector2( 512, 384 )
+position = Vector2( 512, 449.374 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -75,10 +75,12 @@ script = ExtResource( 4 )
 
 [node name="ball1" type="Sprite" parent="ball" index="0"]
 
+position = Vector2( -1.10803, -31.0249 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ball" index="1"]
 
+position = Vector2( -1.10803, -31.0249 )
 shape = SubResource( 2 )
 
 [node name="walls" parent="." index="2" instance=ExtResource( 6 )]
@@ -87,13 +89,13 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="ControlPanel" parent="." index="3" instance=ExtResource( 7 )]
 
-[node name="bricks" parent="." index="4" instance=ExtResource( 8 )]
+[node name="start_position" type="Position2D" parent="." index="4"]
 
-position = Vector2( 31, -10 )
+position = Vector2( 510.892, 418.349 )
 
-[node name="start_position" type="Position2D" parent="." index="5"]
+[node name="bricks" type="Node2D" parent="." index="5"]
 
-position = Vector2( 512, 384 )
+[node name="level1" parent="bricks" index="0" instance=ExtResource( 8 )]
 
 [node name="StartButton" type="TextureButton" parent="." index="6"]
 

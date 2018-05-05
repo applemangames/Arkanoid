@@ -2,6 +2,8 @@ extends Node2D
 
 signal ball_out_of_room
 
+var level = 1
+
 func _ready():
 	connect("ball_out_of_room", self, "ball_out_of_room")
 
@@ -23,11 +25,21 @@ func load_new_bricks():
 	for brick in bricks:
 		brick.free()
 	
-	var scene = load("res://scenes/level1.tscn")
+	var resource = "res://scenes/level%d.tscn" % level
+	var scene = load(resource)
 	var node = scene.instance()
 	node.position = $bricks.position
 	node.z_index = -1
 	add_child(node)
+	
+	
+func next_level():
+	level += 1
+	$ball.reset_ball()
+	$pad.set_start_position()
+	$ControlPanel/lives.add_live()
+	load_new_bricks()
+	
 	
 func show_game_over():
 	var image = Image.new()
@@ -44,6 +56,6 @@ func ball_out_of_room():
 		show_game_over()
 		$ball.free()
 	else:
-		load_new_bricks()
 		$ball.reset_ball()
 		$pad.set_start_position()
+		load_new_bricks()
