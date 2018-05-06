@@ -22,10 +22,6 @@ func _on_StartButton_pressed():
 	$pad.start = true
 	
 func load_new_bricks():
-#	var bricks = get_tree().get_nodes_in_group("bricks")
-#	for brick in bricks:
-#		brick.free()
-	
 	var resource = "res://scenes/level%d.tscn" % level
 	var scene = load(resource)
 	var bricks = scene.instance()
