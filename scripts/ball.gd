@@ -1,12 +1,16 @@
 extends KinematicBody2D
 
+const dir_chooses = [Vector2(1,1), Vector2(1,-1), Vector2(-1,1), Vector2(-1,-1)]
+const START_SPEED = 250
+
+
 var motion = Vector2(0,0)
 var direction = 45
 var speed = 0
+var previous_speed = START_SPEED
 var bricks = []
 var dir = Vector2(1,-1)
 var start = false
-const dir_chooses = [Vector2(1,1), Vector2(1,-1), Vector2(-1,1), Vector2(-1,-1)]
 
 func _ready():
 	randomize()
@@ -54,6 +58,7 @@ func reset_ball():
 	motion = Vector2(0,0)
 	randomize()
 	dir = dir_chooses[randi() % 4]
+	previous_speed = speed
 	speed = 0
 	start = false
 	

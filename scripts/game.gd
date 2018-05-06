@@ -17,27 +17,29 @@ func _on_StartButton_pressed():
 	$StartButton.hide()
 	print("start Game")
 	$ball.direction = 45
-	$ball.speed = 250
+	$ball.speed = $ball.previous_speed
 	$ball.start = true
 	$pad.start = true
 	
 func load_new_bricks():
-	var bricks = get_tree().get_nodes_in_group("bricks")
-	for brick in bricks:
-		brick.free()
+#	var bricks = get_tree().get_nodes_in_group("bricks")
+#	for brick in bricks:
+#		brick.free()
 	
 	var resource = "res://scenes/level%d.tscn" % level
 	var scene = load(resource)
-	var node = scene.instance()
-	node.position = $bricks.position
-	node.z_index = -1
-	add_child(node)
+	var bricks = scene.instance()
+	bricks.position = Vector2(0,0)
+	bricks.z_index = -1
+	add_child(bricks)
 	
 	
 func next_level():
 	level += 1
 	if level > MAX_LEVELS:
 		level = 1
+	$pad.speed = $pad.START_SPEED
+	$ball.speed = $ball.START_SPEED
 	$ball.reset_ball()
 	$pad.set_start_position()
 	$ControlPanel/lives.add_live()
@@ -59,4 +61,3 @@ func ball_out_of_room():
 	else:
 		$ball.reset_ball()
 		$pad.set_start_position()
-		load_new_bricks()
