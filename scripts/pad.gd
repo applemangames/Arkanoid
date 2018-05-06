@@ -23,7 +23,7 @@ func _physics_process(delta):
 		pad_motion.x = 0
 	
 	if start:
-		speed += 0.0005
+		speed += 0.001
 		move_and_collide(pad_motion)
 	
 	

@@ -40,10 +40,11 @@ func next_level():
 		level = 1
 	$pad.speed = $pad.START_SPEED
 	$ball.speed = $ball.START_SPEED
-	$ball.reset_ball()
+	$ball.set_start_position()
 	$pad.set_start_position()
 	$ControlPanel/lives.add_live()
 	load_new_bricks()
+	$StartButton.show()
 	
 	
 func show_game_over():
@@ -59,5 +60,6 @@ func ball_out_of_room():
 		show_game_over()
 		$ball.free()
 	else:
-		$ball.reset_ball()
+		$ball.set_start_position()
 		$pad.set_start_position()
+		$StartButton.show()
