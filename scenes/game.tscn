@@ -5,10 +5,10 @@
 [ext_resource path="res://images/pad1.png" type="Texture" id=3]
 [ext_resource path="res://scripts/ball.gd" type="Script" id=4]
 [ext_resource path="res://images/ball1.png" type="Texture" id=5]
-[ext_resource path="res://scenes/ControlPanel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=7]
-[ext_resource path="res://images/start_button.png" type="Texture" id=8]
-[ext_resource path="res://fonts/Averia-Gruesa.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://images/start_button.png" type="Texture" id=7]
+[ext_resource path="res://fonts/Averia-Gruesa.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scenes/ControlPanel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -36,7 +36,7 @@ shortcut = SubResource( 3 )
 size = 40
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 9 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="game" type="Node2D"]
@@ -83,20 +83,15 @@ texture = ExtResource( 5 )
 position = Vector2( 2.26498e-06, -2.21606 )
 shape = SubResource( 2 )
 
-[node name="ControlPanel" parent="." index="2" instance=ExtResource( 6 )]
-
-pause_mode = 2
-_sections_unfolded = [ "Pause" ]
-
-[node name="bricks" type="Node2D" parent="." index="3"]
+[node name="bricks" type="Node2D" parent="." index="2"]
 
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="level" parent="bricks" index="0" instance=ExtResource( 7 )]
+[node name="level" parent="bricks" index="0" instance=ExtResource( 6 )]
 
-[node name="StartButton" type="TextureButton" parent="." index="4"]
+[node name="StartButton" type="TextureButton" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -117,7 +112,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = SubResource( 4 )
 group = null
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 7 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Textures", "Visibility", "custom_fonts" ]
 
 [node name="Label" type="Label" parent="StartButton" index="0"]
@@ -148,6 +143,11 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="ControlPanel" parent="." index="4" instance=ExtResource( 9 )]
+
+pause_mode = 2
+_sections_unfolded = [ "Pause" ]
 
 [node name="GameOver" parent="." index="5" instance=ExtResource( 10 )]
 

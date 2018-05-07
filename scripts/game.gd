@@ -6,7 +6,7 @@ var level = 1
 const MAX_LEVELS = 3
 
 var admob = null
-var isReal = true
+var isReal = false
 var isTop = false
 var adBannerId = "ca-app-pub-8376690330172162/3506453875" # [Replace with your Ad Unit ID and delete this message.]
 
