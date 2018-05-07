@@ -12,8 +12,10 @@ var bricks = []
 var dir = Vector2(1,-1)
 var start = false
 var collide = false
+var start_position 
 
 func _ready():
+	start_position = position
 	randomize()
 
 func _physics_process(delta):
@@ -54,7 +56,7 @@ func _process(delta):
 		
 
 func set_start_position():
-	position = $start_position.position
+	position = start_position
 	motion = Vector2(0,0)
 	randomize()
 	dir = dir_chooses[randi() % 4]

@@ -39,7 +39,7 @@ use_filter = true
 font_data = ExtResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="game" type="Node2D" index="0"]
+[node name="game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -82,10 +82,6 @@ texture = ExtResource( 5 )
 
 position = Vector2( 2.26498e-06, -2.21606 )
 shape = SubResource( 2 )
-
-[node name="start_position" type="Position2D" parent="ball" index="2"]
-
-position = Vector2( 0, -2.216 )
 
 [node name="ControlPanel" parent="." index="2" instance=ExtResource( 6 )]
 

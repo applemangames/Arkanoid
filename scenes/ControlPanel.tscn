@@ -22,7 +22,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="ControlPanel" type="Node2D"]
+[node name="ControlPanel" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -130,5 +130,7 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 5 )
 _sections_unfolded = [ "Textures", "Transform" ]
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
 
 
