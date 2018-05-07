@@ -96,6 +96,10 @@ position = Vector2( 512, 447.158 )
 
 [node name="bricks" type="Node2D" parent="." index="5"]
 
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="level" parent="bricks" index="0" instance=ExtResource( 8 )]
 
 [node name="StartButton" type="TextureButton" parent="." index="6"]
@@ -147,6 +151,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="GameOver" parent="." index="7" instance=ExtResource( 11 )]
 

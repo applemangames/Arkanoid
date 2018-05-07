@@ -8,6 +8,10 @@
 
 config_version=3
 
+[android]
+
+modules="org/godotengine/godot/GodotAdMob"
+
 [application]
 
 config/name="Arkanoid"
@@ -16,6 +20,7 @@ config/icon="res://images/icon.png"
 
 [display]
 
+window/size/height=660
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

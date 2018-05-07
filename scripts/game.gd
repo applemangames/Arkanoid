@@ -5,8 +5,25 @@ signal ball_out_of_room
 var level = 1
 const MAX_LEVELS = 3
 
+var admob = null
+var isReal = true
+var isTop = false
+var adBannerId = "ca-app-pub-8376690330172162/3506453875" # [Replace with your Ad Unit ID and delete this message.]
+
+
 func _ready():
 	connect("ball_out_of_room", self, "ball_out_of_room")
+	
+	if(Engine.has_singleton("AdMob")):
+		admob = Engine.get_singleton("AdMob")
+		admob.init(isReal, get_instance_id())
+		loadBanner()
+
+func loadBanner():
+	if admob != null:
+		admob.loadBanner(adBannerId, isTop)
+		admob.showBanner()
+
 
 func _process(delta):
 	if Input.is_action_just_released("enter"):
@@ -20,6 +37,7 @@ func _on_StartButton_pressed():
 	$ball.speed = $ball.previous_speed
 	$ball.start = true
 	$pad.start = true
+	
 	
 func load_new_bricks():
 	var resource = "res://scenes/level%d.tscn" % level
