@@ -8,20 +8,19 @@ const MAX_LEVELS = 3
 var admob = null
 var isReal = false
 var isTop = false
-var adBannerId = "ca-app-pub-8376690330172162/3506453875" # [Replace with your Ad Unit ID and delete this message.]
-
+#var adBannerId = "ca-app-pub-8376690330172162/3506453875" # [Replace with your Ad Unit ID and delete this message.]
+var adBannerId = "ca-app-pub-3940256099942544/6300978111"
+var adRewardVideoId = "ca-app-pub-3940256099942544/5224354917"
 
 func _ready():
 	connect("ball_out_of_room", self, "ball_out_of_room")
+	$Buttons/AddLiveButton.hide()
 	
 	if(Engine.has_singleton("AdMob")):
 		admob = Engine.get_singleton("AdMob")
 		admob.init(isReal, get_instance_id())
-		loadBanner()
-
-func loadBanner():
-	if admob != null:
 		admob.loadBanner(adBannerId, isTop)
+		admob.loadRewardedVideo(adRewardVideoId)
 		admob.showBanner()
 
 
@@ -31,7 +30,7 @@ func _process(delta):
 
 
 func _on_StartButton_pressed():
-	$StartButton.hide()
+	$Buttons.hide()
 	print("start Game")
 	$ball.direction = 45
 	$ball.speed = $ball.previous_speed
@@ -58,7 +57,8 @@ func next_level():
 	$pad.set_start_position()
 	$ControlPanel/lives.add_live()
 	load_new_bricks()
-	$StartButton.show()
+	$Buttons.show()
+	$Buttons/AddLiveButton.hide()
 	
 	
 func show_game_over():
@@ -68,6 +68,7 @@ func show_game_over():
 func restart():
 	get_tree().change_scene("res://scenes/game.tscn")
 
+
 func ball_out_of_room():
 	$ControlPanel/lives.remove_live()
 	if $ControlPanel/lives.get_lives_num() <= 0:
@@ -76,7 +77,17 @@ func ball_out_of_room():
 	else:
 		$ball.set_start_position()
 		$pad.set_start_position()
-		$StartButton.show()
+		$Buttons.show()
+		if admob != null:
+			admob.loadRewardedVideo(adRewardVideoId)
+			$Buttons/AddLiveButton.show()
 
 
 
+func _on_AddLiveButton_pressed():
+	if admob != null:
+		admob.showRewardedVideo()
+
+func _on_rewarded_video_ad_closed():
+	$Buttons/AddLiveButton.hide()
+	$ControlPanel/lives.add_live()

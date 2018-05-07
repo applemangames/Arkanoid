@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scripts/pad.gd" type="Script" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://images/start_button.png" type="Texture" id=7]
 [ext_resource path="res://fonts/Averia-Gruesa.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://scenes/ControlPanel.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=10]
+[ext_resource path="res://images/live.png" type="Texture" id=9]
+[ext_resource path="res://scenes/ControlPanel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -39,7 +40,7 @@ use_filter = true
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -91,16 +92,20 @@ __meta__ = {
 
 [node name="level" parent="bricks" index="0" instance=ExtResource( 6 )]
 
-[node name="StartButton" type="TextureButton" parent="." index="3"]
+[node name="Buttons" type="Node2D" parent="." index="3"]
+
+position = Vector2( 407.756, 198.338 )
+
+[node name="StartButton" type="TextureButton" parent="Buttons" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 413.0
-margin_top = 244.0
-margin_right = 624.0
-margin_bottom = 333.0
+margin_left = -4.0
+margin_top = -3.0
+margin_right = 207.0
+margin_bottom = 86.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -114,8 +119,11 @@ shortcut = SubResource( 4 )
 group = null
 texture_normal = ExtResource( 7 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Textures", "Visibility", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Label" type="Label" parent="StartButton" index="0"]
+[node name="Label" type="Label" parent="Buttons/StartButton" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -144,15 +152,95 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ControlPanel" parent="." index="4" instance=ExtResource( 9 )]
+[node name="AddLiveButton" type="TextureButton" parent="Buttons" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -4.0
+margin_top = 105.0
+margin_right = 207.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = SubResource( 4 )
+group = null
+texture_normal = ExtResource( 7 )
+_sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Textures", "Visibility", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Buttons/AddLiveButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 22.0
+margin_right = 153.0
+margin_bottom = 73.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Buttons/AddLiveButton" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 98.0
+margin_top = 28.0
+margin_right = 142.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 9 )
+stretch_mode = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ControlPanel" parent="." index="4" instance=ExtResource( 10 )]
 
 pause_mode = 2
 _sections_unfolded = [ "Pause" ]
 
-[node name="GameOver" parent="." index="5" instance=ExtResource( 10 )]
+[node name="GameOver" parent="." index="5" instance=ExtResource( 11 )]
 
 visible = false
 
-[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_StartButton_pressed"]
+
+[connection signal="pressed" from="Buttons/AddLiveButton" to="." method="_on_AddLiveButton_pressed"]
 
 
