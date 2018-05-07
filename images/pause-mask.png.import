@@ -1,32 +1,18 @@
 [remap]
 
-importer="texture"
-type="StreamTexture"
-path="res://.import/pause-mask.png-7c484cac2f54230e3217987382d40274.stex"
+importer="bitmap"
+type="BitMap"
+path="res://.import/pause-mask.png-7c484cac2f54230e3217987382d40274.res"
 
 [deps]
 
 source_file="res://images/pause-mask.png"
 source_md5="6bc057f19a8b880c5f768ba89574db13"
 
-dest_files=[ "res://.import/pause-mask.png-7c484cac2f54230e3217987382d40274.stex" ]
-dest_md5="023049c26b0ec09155b17a91ad943d81"
+dest_files=[ "res://.import/pause-mask.png-7c484cac2f54230e3217987382d40274.res" ]
+dest_md5="c912c73d7de8aee4a9748cd27805e969"
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0
+create_from=0
+threshold=0.5
