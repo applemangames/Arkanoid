@@ -1,16 +1,15 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scripts/pad.gd" type="Script" id=2]
 [ext_resource path="res://images/pad1.png" type="Texture" id=3]
 [ext_resource path="res://scripts/ball.gd" type="Script" id=4]
 [ext_resource path="res://images/ball1.png" type="Texture" id=5]
-[ext_resource path="res://scenes/walls.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/ControlPanel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://images/start_button.png" type="Texture" id=9]
-[ext_resource path="res://fonts/Averia-Gruesa.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/ControlPanel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://images/start_button.png" type="Texture" id=8]
+[ext_resource path="res://fonts/Averia-Gruesa.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -37,7 +36,7 @@ shortcut = SubResource( 3 )
 size = 40
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 10 )
+font_data = ExtResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="game" type="Node2D" index="0"]
@@ -84,25 +83,24 @@ texture = ExtResource( 5 )
 position = Vector2( 2.26498e-06, -2.21606 )
 shape = SubResource( 2 )
 
-[node name="walls" parent="." index="2" instance=ExtResource( 6 )]
+[node name="start_position" type="Position2D" parent="ball" index="2"]
 
-_sections_unfolded = [ "Visibility" ]
+position = Vector2( 0, -2.216 )
 
-[node name="ControlPanel" parent="." index="3" instance=ExtResource( 7 )]
+[node name="ControlPanel" parent="." index="2" instance=ExtResource( 6 )]
 
-[node name="start_position" type="Position2D" parent="." index="4"]
+pause_mode = 2
+_sections_unfolded = [ "Pause" ]
 
-position = Vector2( 512, 447.158 )
-
-[node name="bricks" type="Node2D" parent="." index="5"]
+[node name="bricks" type="Node2D" parent="." index="3"]
 
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="level" parent="bricks" index="0" instance=ExtResource( 8 )]
+[node name="level" parent="bricks" index="0" instance=ExtResource( 7 )]
 
-[node name="StartButton" type="TextureButton" parent="." index="6"]
+[node name="StartButton" type="TextureButton" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -123,7 +121,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = SubResource( 4 )
 group = null
-texture_normal = ExtResource( 9 )
+texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Textures", "Visibility", "custom_fonts" ]
 
 [node name="Label" type="Label" parent="StartButton" index="0"]
@@ -155,7 +153,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="GameOver" parent="." index="7" instance=ExtResource( 11 )]
+[node name="GameOver" parent="." index="5" instance=ExtResource( 10 )]
 
 visible = false
 

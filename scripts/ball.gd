@@ -54,7 +54,7 @@ func _process(delta):
 		
 
 func set_start_position():
-	position = get_node('../start_position').position
+	position = $start_position.position
 	motion = Vector2(0,0)
 	randomize()
 	dir = dir_chooses[randi() % 4]

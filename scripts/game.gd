@@ -77,3 +77,6 @@ func ball_out_of_room():
 		$ball.set_start_position()
 		$pad.set_start_position()
 		$StartButton.show()
+
+
+
