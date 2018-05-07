@@ -4,6 +4,7 @@ signal ball_out_of_room
 
 var level = 1
 const MAX_LEVELS = 3
+const TIMER_WAIT_TIME = 15
 
 var admob = null
 var isReal = false
@@ -11,6 +12,7 @@ var isTop = false
 #var adBannerId = "ca-app-pub-8376690330172162/3506453875" # [Replace with your Ad Unit ID and delete this message.]
 var adBannerId = "ca-app-pub-3940256099942544/6300978111"
 var adRewardVideoId = "ca-app-pub-3940256099942544/5224354917"
+var timer = Timer.new()
 
 func _ready():
 	connect("ball_out_of_room", self, "ball_out_of_room")
@@ -26,8 +28,14 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_released("enter"):
-		$StartButton.emit_signal("pressed")
+		$Buttons/StartButton.emit_signal("pressed")
 
+func setup_timer():
+	self.timer.wait_time = TIMER_WAIT_TIME
+	self.timer.one_shot = true 
+	add_child(self.timer)
+	self.timer.start()
+	
 
 func _on_StartButton_pressed():
 	$Buttons.hide()
@@ -36,7 +44,7 @@ func _on_StartButton_pressed():
 	$ball.speed = $ball.previous_speed
 	$ball.start = true
 	$pad.start = true
-	
+	setup_timer()
 	
 func load_new_bricks():
 	var resource = "res://scenes/level%d.tscn" % level
@@ -78,10 +86,11 @@ func ball_out_of_room():
 		$ball.set_start_position()
 		$pad.set_start_position()
 		$Buttons.show()
-		if admob != null:
+		
+		if admob != null and self.timer.get_time_left() != 0:
 			admob.loadRewardedVideo(adRewardVideoId)
 			$Buttons/AddLiveButton.show()
-
+		
 
 
 func _on_AddLiveButton_pressed():
