@@ -1,10 +1,19 @@
 extends Node2D
 
 
-func _on_PauseButton_pressed():
+func _on_MobilePauseButton_released():
 	if get_tree().paused == false:
 		get_tree().paused = true
-		$PauseButton.set_normal_texture(load("res://images/play.png"))
+		$PauseButton/MobilePauseButton.normal = load("res://images/play.png")
 	else:
 		get_tree().paused = false
-		$PauseButton.set_normal_texture(load("res://images/pause.png"))
+		$PauseButton/MobilePauseButton.normal = load("res://images/pause.png")
+
+
+func _on_ComputerPauseButton_button_down():
+	if get_tree().paused == false:
+		get_tree().paused = true
+		$PauseButton/ComputerPauseButton.texture_normal = load("res://images/play.png")
+	else:
+		get_tree().paused = false
+		$PauseButton/ComputerPauseButton.texture_normal = load("res://images/pause.png")
