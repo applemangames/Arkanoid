@@ -7,10 +7,10 @@ path="res://.import/pause.png-412a086c48b7dd7b63ebe7f2a188a8da.stex"
 [deps]
 
 source_file="res://images/pause.png"
-source_md5="1a9e4fa73b2c852546718ed8afd70872"
+source_md5="891de6643976f5a1b8afae3a4ed5afc0"
 
 dest_files=[ "res://.import/pause.png-412a086c48b7dd7b63ebe7f2a188a8da.stex" ]
-dest_md5="0372f86ff62c099ca31cbbd4f90f9fb1"
+dest_md5="4e4f5ec58e9af0810d65ee0dc67e1532"
 
 [params]
 
