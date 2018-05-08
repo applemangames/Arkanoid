@@ -66,8 +66,13 @@ func next_level():
 	$ControlPanel/lives.add_live()
 	load_new_bricks()
 	$Buttons.show()
-	$Buttons/AddLiveButton.hide()
+	#$Buttons/AddLiveButton.hide()
+	show_add_live_button()
 	
+func show_add_live_button():
+	if admob != null and self.timer.get_time_left() != 0:
+		admob.loadRewardedVideo(adRewardVideoId)
+		$Buttons/AddLiveButton.show()
 	
 func show_game_over():
 	$pad.start = false
@@ -86,10 +91,7 @@ func ball_out_of_room():
 		$ball.set_start_position()
 		$pad.set_start_position()
 		$Buttons.show()
-		
-		if admob != null and self.timer.get_time_left() != 0:
-			admob.loadRewardedVideo(adRewardVideoId)
-			$Buttons/AddLiveButton.show()
+		show_add_live_button()
 		
 
 
