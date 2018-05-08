@@ -21,7 +21,7 @@ func _ready():
 	if(Engine.has_singleton("AdMob")):
 		admob = Engine.get_singleton("AdMob")
 		admob.init(isReal, get_instance_id())
-		admob.loadBanner(adBannerId, isTop)
+		print(admob.loadBanner(adBannerId, isTop))
 		admob.loadRewardedVideo(adRewardVideoId)
 		admob.showBanner()
 
@@ -70,13 +70,18 @@ func next_level():
 	$ControlPanel/lives.add_live()
 	load_new_bricks()
 	$Buttons.show()
-	#$Buttons/AddLiveButton.hide()
-	show_add_live_button()
+	$Buttons/AddLiveButton.hide()
+	#load_reward_video()
 	
-func show_add_live_button():
+func load_reward_video():
 	if admob != null and self.timer.get_time_left() != 0:
 		admob.loadRewardedVideo(adRewardVideoId)
-		$Buttons/AddLiveButton.show()
+		
+func _on_rewarded_video_ad_loaded():
+	$Buttons/AddLiveButton.show()
+		
+func _on_rewarded_video_ad_failed_to_load(errorCode):
+	$Buttons/AddLiveButton.hide()
 	
 func show_game_over():
 	$pad.start = false
@@ -95,7 +100,7 @@ func ball_out_of_room():
 		$ball.set_start_position()
 		$pad.set_start_position()
 		$Buttons.show()
-		show_add_live_button()
+		load_reward_video()
 		
 
 

@@ -7,10 +7,10 @@ path="res://.import/main_scene.png-e52a8351ddf83a72c34232cf5b87e3ba.stex"
 [deps]
 
 source_file="res://images/main_scene.png"
-source_md5="fbc20accbc9737e7b5a5d3b8ffc96339"
+source_md5="5c1b66e768ddcad72ef95caad9c6ec1b"
 
 dest_files=[ "res://.import/main_scene.png-e52a8351ddf83a72c34232cf5b87e3ba.stex" ]
-dest_md5="348262050459ef1bab72f5da69c5f3fc"
+dest_md5="711bd4a1dab682e335ce3436c95a9f39"
 
 [params]
 
