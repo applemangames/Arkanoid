@@ -15,9 +15,9 @@ func _ready():
 func _physics_process(delta):
 	mouse_position = get_viewport().get_mouse_position()	
 	
-	if Input.is_action_pressed("ui_right") or mouse_is_down and mouse_position.x > get_viewport().size.x/2:
+	if Input.is_action_pressed("ui_right") or mouse_is_down and mouse_position.x > self.position.x:
 		pad_motion.x = speed
-	elif Input.is_action_pressed("ui_left") or mouse_is_down and mouse_position.x < get_viewport().size.x/2:
+	elif Input.is_action_pressed("ui_left") or mouse_is_down and mouse_position.x < self.position.x:
 		pad_motion.x = -speed
 	else:
 		pad_motion.x = 0
@@ -25,7 +25,7 @@ func _physics_process(delta):
 	if start:
 		speed += 0.001
 		move_and_collide(pad_motion)
-	
+		
 	
 func _input(event):
 	if event is InputEventMouseButton:
