@@ -1,26 +1,25 @@
 extends Node2D
 
 
-const START_LIVES_COUNT = 3
-const SPACE = 5
-const MAX_LIVES_COUNT = 5
+export (int) var START_LIVES_COUNT = 3
+export (int) var MAX_LIVES_COUNT = 5
+export (int) var SPACE_BETWEEN_LIVES = 5
 
-var previous_position = -SPACE
+var previous_position = -SPACE_BETWEEN_LIVES
 var live_texture_width = 0
 
 func add_live():
 	if get_lives_num() == MAX_LIVES_COUNT:
-		print(get_lives_num())
 		return
 	var live = Sprite.new()
 	live.texture = load("res://images/live.png")
-	live.position.x = previous_position + SPACE + live_texture_width
+	live.position.x = previous_position + SPACE_BETWEEN_LIVES + live_texture_width
 	previous_position = live.position.x
 	add_child(live) 
 	
 
 func remove_live():
-	previous_position -= SPACE + live_texture_width
+	previous_position -= SPACE_BETWEEN_LIVES + live_texture_width
 	get_children()[-1].free()
 	
 func get_lives_num():

@@ -59,6 +59,9 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 [node name="lives" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 160.665, 549.584 )
+START_LIVES_COUNT = 3
+MAX_LIVES_COUNT = 5
+SPACE_BETWEEN_LIVES = 5
 
 [node name="ScoreLabel" type="Label" parent="." index="3"]
 
