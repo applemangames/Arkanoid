@@ -67,7 +67,7 @@ shape = SubResource( 1 )
 
 [node name="ball" type="KinematicBody2D" parent="." index="1"]
 
-position = Vector2( 512, 449.374 )
+position = Vector2( 484.299, 450.482 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -78,11 +78,17 @@ script = ExtResource( 4 )
 
 position = Vector2( 2.26498e-06, -2.21606 )
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ball" index="1"]
 
 position = Vector2( 2.26498e-06, -2.21606 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="bricks" type="Node2D" parent="." index="2"]
 
