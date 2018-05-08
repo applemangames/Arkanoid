@@ -235,14 +235,7 @@ __meta__ = {
 pause_mode = 2
 _sections_unfolded = [ "Pause" ]
 
-[node name="Timer" type="Timer" parent="." index="5"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-
-[node name="GameOver" parent="." index="6" instance=ExtResource( 11 )]
+[node name="GameOver" parent="." index="5" instance=ExtResource( 11 )]
 
 visible = false
 

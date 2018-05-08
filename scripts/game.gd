@@ -39,13 +39,17 @@ func setup_timer():
 
 func _on_StartButton_pressed():
 	$Buttons.hide()
-	print("start Game")
-	$ball.direction = 45
-	$ball.speed = $ball.previous_speed
-	$ball.start = true
-	$pad.start = true
-	setup_timer()
-	
+	if $ball != null:
+		print("start Game")
+		$ball.direction = 45
+		$ball.speed = $ball.previous_speed
+		$ball.start = true
+		$pad.start = true
+		setup_timer()
+	else:
+		print("restart Game")
+		restart()
+		
 func load_new_bricks():
 	var resource = "res://scenes/level%d.tscn" % level
 	var scene = load(resource)
