@@ -15,6 +15,7 @@ var adRewardVideoId = "ca-app-pub-3940256099942544/5224354917"
 var timer = Timer.new()
 
 func _ready():
+	Engine.time_scale = 0.8
 	connect("ball_out_of_room", self, "ball_out_of_room")
 	$Buttons/AddLiveButton.hide()
 	

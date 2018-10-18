@@ -7,10 +7,7 @@ path="res://.import/all_components.svg-fe03297d80e14850d679d76a9a3c2fe4.stex"
 [deps]
 
 source_file="res://images/all_components.svg"
-source_md5="0bd36068e1d66ff96a8957f44712597a"
-
 dest_files=[ "res://.import/all_components.svg-fe03297d80e14850d679d76a9a3c2fe4.stex" ]
-dest_md5="2e19b1ac0f0e29792365c33413c7ca6c"
 
 [params]
 
