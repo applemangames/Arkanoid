@@ -7,7 +7,10 @@ path="res://.import/pad1.png-ff86913e66ae9b8d5e9485070c0cb817.stex"
 [deps]
 
 source_file="res://images/pad1.png"
+source_md5="e08dc2b245f3d361d9320b3907a6e92f"
+
 dest_files=[ "res://.import/pad1.png-ff86913e66ae9b8d5e9485070c0cb817.stex" ]
+dest_md5="d46767c087329c3c42cdaf1863ffffdb"
 
 [params]
 

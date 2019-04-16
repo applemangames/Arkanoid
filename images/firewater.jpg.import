@@ -7,7 +7,10 @@ path="res://.import/firewater.jpg-d1f8c9c24c89a29ca236bcbe0d14ee6b.stex"
 [deps]
 
 source_file="res://images/firewater.jpg"
+source_md5="06045eed9f2b67a47af5269b7926524b"
+
 dest_files=[ "res://.import/firewater.jpg-d1f8c9c24c89a29ca236bcbe0d14ee6b.stex" ]
+dest_md5="bee071d839faa4ed4d516adb8854425a"
 
 [params]
 

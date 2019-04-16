@@ -7,7 +7,10 @@ path="res://.import/start_button.png-c2883707796f780f09ab9fc6a5c06298.stex"
 [deps]
 
 source_file="res://images/start_button.png"
+source_md5="7084be40a726e49b10f72958ffc57c7a"
+
 dest_files=[ "res://.import/start_button.png-c2883707796f780f09ab9fc6a5c06298.stex" ]
+dest_md5="2e68d58d777d83cbadee84f897057ed3"
 
 [params]
 
